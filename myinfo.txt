@@ -1,0 +1,52 @@
+============================================================================================================================
+------------------------------------------------ Added by Khushang ---------------------------------------------------------
+============================================================================================================================
+
+-- Follow this tutorial --
+https://www.digitalocean.com/community/tutorials/how-to-create-an-node-js-app-using-sails-js-on-an-ubuntu-vps
+
+-- Also useful.
+https://scotch.io/tutorials/build-a-sailsjs-app-from-api-to-authentication
+
+-- For JwtSecretToken
+https://hellosails.com/building-api-authentication-from-scratch-part-1/
+
+--
+https://www.vivekrk.com/getting-started-with-sailsjs-part-3-sails-policies-and-jwt/
+
+
+-- Installation of sails and setup APIs in Sails.js.
+sudo npm install sails -g
+sails new `project-name`
+cd `project-name`
+sails lift
+
+-- Install nodemon by following commands so you can run your application without manually restart sails lift.
+npm install nodemon -g
+
+-- Install jsonwebtoken if you want to use unique token functionality.
+npm install jsonwebtoken
+
+-- Add below line inside scripts.
+"dev": "NODE_ENV=development TOKEN_SECRET=hgf5IQmvwK nodemon --ignore '.tmp/*' app.js",
+
+-- After this, we need to run this command to start the application.
+npm run dev
+
+-- Creating Controllers
+sails generate controller user index show edit delete
+sails generate model user name:string email:string password:string
+
+-- Add below lines in config/routes.js
+'get /api/user': {controller: 'user', action: 'index'},
+'get /api/user/:id': {controller: 'user', action: 'find'},
+'post /api/user': {controller: 'user', action: 'create'},
+'put /api/user/:id': {controller: 'user', action: 'update'},
+'delete /api/user/:id': {controller: 'user', action: 'destroy'},
+
+-- Copy config/env/production.js and rename it to development.js
+-- Uncomment this line
+//port: 1337
+
+You can set your custom port
+port: 8520
