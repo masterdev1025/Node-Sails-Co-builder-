@@ -10,7 +10,7 @@
     "@sailshq/socket.io-redis": "^5.2.0",
     "axios": "^0.19.0",
     "braintree": "^2.21.0",
-    "grunt": "1.0.4",
+    "grunt": "1.3.0",
     "image-size": "^0.8.2",
     "ioredis": "^4.14.1",
     "jsonwebtoken": "^8.5.1",
